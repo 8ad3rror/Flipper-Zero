@@ -7,4 +7,3 @@ $filePath2 = "$folderPath\AutoWall.bat"
 Invoke-WebRequest -Uri $fileUrl -OutFile $filePath
 Invoke-WebRequest -Uri $fileUrl2 -OutFile $filePath2
 Copy-Item "C:\AutoWall\AutoWall.bat" -Destination "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
-EXIT
