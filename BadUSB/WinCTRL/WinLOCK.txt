@@ -1,0 +1,8 @@
+REM Title: WinLOCK
+REM Autor: 8ad3rror
+REM Info[PL]: Wykonuje skrót klawiszowy WIN + L
+
+DELAY 200
+GUI l
+STRING EXIT
+ENTER

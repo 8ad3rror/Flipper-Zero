@@ -1,0 +1,12 @@
+REM Title: WinLogOUT
+REM Autor: 8ad3rror
+REM Info[PL]: Wylogowuje z Windows
+
+DELAY 200
+GUI r
+DELAY 300
+STRING cmd
+ENTER
+DELAY 200
+STRING shutdown /l
+ENTER

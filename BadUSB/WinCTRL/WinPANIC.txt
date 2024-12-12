@@ -1,0 +1,8 @@
+REM Title: WinPANIC
+REM Autor: 8ad3rror
+REM Info[PL]: Minimalizuje wszystkie okna
+
+DELAY 100
+GUI d
+STRING EXIT
+ENTER

