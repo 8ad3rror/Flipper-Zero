@@ -1,6 +1,7 @@
 REM Title: TrolloWallpaper
 REM Autor: 8ad3rror
 REM Info[PL]: Ściąga tapete trollo.jpg i AutoWall.bat do folderu na dysku C, przenosi AutoWall.bat do autostartu i uruchamia go
+REM Test Win10
 
 DELAY 100
 GUI r
