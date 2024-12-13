@@ -149,8 +149,7 @@ function Up7z {
 function DelAll {
    cd C:\
    rmdir -R \temp
-   Set-Location -Path "$env:temp"
-   Remove-Item -Path "$env:tmp/8ad3rror" -Force -Recurse;rm $C:\temp\Wifi.txt
+
 }
 
 
