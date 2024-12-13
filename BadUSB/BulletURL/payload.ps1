@@ -28,4 +28,35 @@ function Create7z {
         return
     }
 
-    # Lista
+    # Lista plików do zarchiwizowania
+    $filesToArchive = @(
+        "C:\temp\Version.txt",
+        "C:\temp\Wifi.txt",
+        "C:\temp\Pass.txt"
+    )
+
+    # Sprawdzanie, czy pliki istnieją
+    foreach ($file in $filesToArchive) {
+        if (-not (Test-Path $file)) {
+            Write-Error "Plik nie istnieje: $file"
+            return
+        }
+    }
+
+    # Tworzenie nazwy archiwum na podstawie daty i godziny
+    $timestamp = Get-Date -Format "ddMMyyyy_HHmm"
+    $archivePath = "$tempFolder\$timestamp.7z"
+
+    # Komenda do kompresji plików do archiwum 7z
+    $arguments = "a", $archivePath, $filesToArchive
+    try {
+        Write-Host "Tworzenie archiwum: $archivePath..."
+        & $sevenZipPath $arguments
+        Write-Host "Archiwum zostało utworzone: $archivePath"
+    } catch {
+        Write-Error "Wystąpił błąd podczas tworzenia archiwum: $_"
+    }
+}
+
+# Wywołanie funkcji
+Create7z
