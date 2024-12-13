@@ -64,8 +64,9 @@ function Create7z {
 
     $timestamp = Get-Date -Format "yyyyMMdd_HHmm"
     $archivePath = "$tempFolder\tom$timestamp.7z"
+    $pass = "1992"
 
-    $arguments = @("a", "`"$archivePath`"")
+    $arguments = @("a", "`"$archivePath`"", "-p$pass")
     foreach ($file in $filesToArchive) {
         $arguments += "`"$file`""
     }
