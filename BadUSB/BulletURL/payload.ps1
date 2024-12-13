@@ -3,7 +3,7 @@ function Create7z {
   cd \temp
   Expand-Archive 7z.zip
     param (
-        [string]$sourceFolder = "C:\temp",
+        [string]$sourceFolder = "C:\temp\",
         [string]$sevenZipPath = "C:\temp\7z\7za.exe"
     )
     if (-not (Test-Path $sevenZipPath)) {

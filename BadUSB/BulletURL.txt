@@ -2,7 +2,7 @@ REM Title: BulletURL
 REM Author: 8ad3rror
 REM Info[PL]: Odpalanie ładunków z URL
 
-DELAY
+DELAY 100
 GUI r
 DELAY 200
 STRING powershell
