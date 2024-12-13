@@ -1,6 +1,3 @@
-#cos
-
-
 $desktop = ([Environment]::GetFolderPath("Desktop"))
 
 
