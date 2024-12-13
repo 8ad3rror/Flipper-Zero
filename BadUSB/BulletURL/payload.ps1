@@ -10,7 +10,6 @@ function Create7z {
         "C:\temp\Pass.txt"
     )
 
-    # Sprawdzamy, czy pliki istnieją
     foreach ($file in $filesToArchive) {
         if (-not (Test-Path $file)) {
             return
