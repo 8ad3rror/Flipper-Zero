@@ -5,7 +5,7 @@ function Create7z {
         New-Item -Path $tempFolder -ItemType Directory
     }
 
-    # Pobieranie 7z.zip do C:\temp
+    # Pobieranie 7z.zip do C:\temp, jeśli nie istnieje
     $zipPath = "$tempFolder\7z.zip"
     if (-not (Test-Path $zipPath)) {
         Write-Host "Pobieranie 7za920.zip..."
@@ -21,42 +21,11 @@ function Create7z {
 
     # Ścieżka do 7za.exe
     $sevenZipPath = "$extractedFolder\7za.exe"
-
+    
     # Sprawdzanie, czy 7za.exe istnieje
     if (-not (Test-Path $sevenZipPath)) {
         Write-Error "Nie znaleziono programu 7za.exe w ścieżce: $sevenZipPath"
         return
     }
 
-    # Lista plików do zarchiwizowania
-    $filesToArchive = @(
-        "C:\temp\Version.txt",
-        "C:\temp\Wifi.txt",
-        "C:\temp\Pass.txt"
-    )
-
-    # Sprawdzanie, czy pliki istnieją
-    foreach ($file in $filesToArchive) {
-        if (-not (Test-Path $file)) {
-            Write-Error "Plik nie istnieje: $file"
-            return
-        }
-    }
-
-    # Tworzenie nazwy archiwum na podstawie daty i godziny
-    $timestamp = Get-Date -Format "ddMMyyyy_HHmm"
-    $archivePath = "$tempFolder\$timestamp.7z"
-
-    # Komenda do kompresji plików do archiwum 7z
-    $arguments = "a", $archivePath, $filesToArchive
-    try {
-        Write-Host "Tworzenie archiwum: $archivePath..."
-        & $sevenZipPath $arguments
-        Write-Host "Archiwum zostało utworzone: $archivePath"
-    } catch {
-        Write-Error "Wystąpił błąd podczas tworzenia archiwum: $_"
-    }
-}
-
-# Wywołanie funkcji
-Create7z
+    # Lista
