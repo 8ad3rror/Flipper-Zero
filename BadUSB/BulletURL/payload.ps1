@@ -53,7 +53,8 @@ function Create7z {
         Write-Host "Tworzenie archiwum: $archivePath..."
         & $sevenZipPath $arguments
         Write-Host "Archiwum zostało utworzone: $archivePath"
-    } catch {
+    }
+    catch {
         Write-Error "Wystąpił błąd podczas tworzenia archiwum: $_"
     }
 }
