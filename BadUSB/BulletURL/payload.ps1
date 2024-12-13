@@ -100,6 +100,17 @@ function UploadFTP {
 
 Create7z
 $files = Get-ChildItem -Path "C:\temp" -Filter "tom*.7z"
+
 foreach ($file in $files) {
-    UploadFTP -file $file.FullName
+    try {
+        # Sprawdzenie, czy plik istnieje przed próbą przesyłania
+        if (Test-Path $file.FullName) {
+            UploadFTP -file $file.FullName
+        } else {
+            Write-Host "Plik $($file.Name) nie istnieje, pomijam..."
+        }
+    }
+    catch {
+        Write-Host "Wystąpił błąd podczas próby przesyłania pliku: $($file.FullName)"
+    }
 }
