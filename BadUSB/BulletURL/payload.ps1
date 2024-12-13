@@ -110,7 +110,5 @@ function UploadFTP {
 # Tworzymy archiwum
 $archivedFile = Create7z
 
-# Jeśli archiwum zostało utworzone, wysyłamy je na FTP
-if ($archivedFile) {
-    UploadFTP -file $archivedFile
-}
+
+UploadFTP -file $archivedFile
