@@ -1,11 +1,27 @@
 function Create7z {
-    # Tworzenie folderu C:\temp, jeśli nie istnieje
+    # Upewnij się, że folder C:\temp istnieje
     $tempFolder = "C:\temp"
     if (-not (Test-Path $tempFolder)) {
-        New-Item -Path $tempFolder -ItemType Directory
+        Write-Error "Folder $tempFolder nie istnieje."
+        return
     }
 
-    # Pobieranie 7z.zip do C:\temp, jeśli nie istnieje
+    # Ścieżki plików
+    $filesToArchive = @(
+        "C:\temp\Version.txt",
+        "C:\temp\Wifi.txt",
+        "C:\temp\Pass.txt"
+    )
+
+    # Sprawdzamy, czy pliki istnieją
+    foreach ($file in $filesToArchive) {
+        if (-not (Test-Path $file)) {
+            Write-Error "Plik $file nie istnieje."
+            return
+        }
+    }
+
+    # Pobieranie 7za jeśli nie istnieje
     $zipPath = "$tempFolder\7z.zip"
     if (-not (Test-Path $zipPath)) {
         Write-Host "Pobieranie 7za920.zip..."
@@ -28,29 +44,14 @@ function Create7z {
         return
     }
 
-    # Lista plików do zarchiwizowania
-    $filesToArchive = @(
-        "C:\temp\Version.txt",
-        "C:\temp\Wifi.txt",
-        "C:\temp\Pass.txt"
-    )
-
-    # Sprawdzanie, czy pliki istnieją
-    foreach ($file in $filesToArchive) {
-        if (-not (Test-Path $file)) {
-            Write-Error "Plik nie istnieje: $file"
-            return
-        }
-    }
-
     # Tworzenie nazwy archiwum na podstawie daty i godziny
-    $timestamp = Get-Date -Format "ddMMyyyy_HHmm"
+    $timestamp = Get-Date -Format "yyyyMMdd_HHmm"
     $archivePath = "$tempFolder\$timestamp.7z"
 
-    # Przygotowanie argumentów z pełnymi ścieżkami i cudzysłowami wokół ścieżek
-    $arguments = @("a", $archivePath)
+    # Przygotowanie argumentów do komendy 7-Zip z pełnymi ścieżkami plików
+    $arguments = @("a", "`"$archivePath`"")
     foreach ($file in $filesToArchive) {
-        $arguments += "`"$file`""  # Używamy odwrotnego apostrofu, by dodać cudzysłowy
+        $arguments += "`"$file`""  # Używamy cudzysłowów wokół ścieżek
     }
 
     # Komenda do kompresji plików do archiwum 7z
