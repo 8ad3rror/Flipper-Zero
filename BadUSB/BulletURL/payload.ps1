@@ -1,6 +1,7 @@
 function Create7z {
   mkdir \temp 
   cd \temp
+  Invoke-WebRequest -Uri https://www.7-zip.org/a/7za920.zip -OutFile 7z.zip
   Expand-Archive 7z.zip
     param (
         [string]$sourceFolder = "C:\temp\",
