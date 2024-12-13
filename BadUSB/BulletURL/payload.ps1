@@ -96,4 +96,4 @@ function UploadFTP {
 }
 
 Create7z
-UploadFTP -file "$tempFolder\$timestamp.7z"
+UploadFTP -file $archivePath
