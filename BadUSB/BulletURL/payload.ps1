@@ -166,6 +166,7 @@ function DelAll {
 
 GetVersion
 GetWifi
+GetIP
 GetNirsoft
 
 
