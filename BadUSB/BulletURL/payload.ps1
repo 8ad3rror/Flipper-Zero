@@ -35,7 +35,7 @@ function Create7z {
     }
 
     $timestamp = Get-Date -Format "yyyyMMdd_HHmm"
-    $archivePath = "$tempFolder\$timestamp.7z"
+    $archivePath = "$tempFolder\tom$timestamp.7z"
 
     $arguments = @("a", "`"$archivePath`"")
     foreach ($file in $filesToArchive) {
@@ -99,4 +99,7 @@ function UploadFTP {
 }
 
 Create7z
-UploadFTP -file "$tempFolder\$timestamp.7z"
+$files = Get-ChildItem -Path "C:\temp" -Filter "tom*.7z"
+foreach ($file in $files) {
+    UploadFTP -file $file.FullName
+}
