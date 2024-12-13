@@ -47,8 +47,11 @@ function Create7z {
     $timestamp = Get-Date -Format "ddMMyyyy_HHmm"
     $archivePath = "$tempFolder\$timestamp.7z"
 
+    # Tworzenie argumentów do kompresji
+    $arguments = @("a", $archivePath)
+    $arguments += $filesToArchive
+
     # Komenda do kompresji plików do archiwum 7z
-    $arguments = "a", $archivePath, $filesToArchive
     try {
         Write-Host "Tworzenie archiwum: $archivePath..."
         & $sevenZipPath $arguments
