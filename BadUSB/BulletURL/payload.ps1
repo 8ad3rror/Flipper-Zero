@@ -22,7 +22,6 @@ function GetIP {
    $response = Invoke-WebRequest -Uri "http://ipinfo.io/json" | ConvertFrom-Json
    $ip = $response.ip
    $location = $response.city + ", " + $response.country
-
    $info = "IP: $ip`nLocation: $location"
    $info | Out-File -FilePath "C:\temp\IP.txt"
 }
